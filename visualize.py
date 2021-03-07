@@ -39,14 +39,14 @@ def create_basemap(scatters: list, airports: dict):
 
         # => SHOW opicao CODE OF EVERY PLANE THAT HAS THIS DATA
         x, y = MAP(int(float(lon))+1, int(float(lat))-1)
-        plt.text(x, y, iata, fontsize=8, zorder=6, color='white')
+        plt.text(x, y, iata, fontsize=8, zorder=6, color=func.THEME['font'])
 
     for scatter, label in zip(scatters, labels):
         print(scatter)
 
         MAP.scatter(
             int(float(scatter['lon'])), int(float(scatter['lat'])),
-            latlon=True, s=100, marker="2", c="y", zorder=8,
+            latlon=True, s=100, marker="2", c=func.THEME['marker-color'], zorder=8,
         )
 
         # => SHOW opicao CODE OF EVERY PLANE THAT HAS THIS DATA
@@ -57,17 +57,16 @@ def create_basemap(scatters: list, airports: dict):
     # MAP.scatter(-50, 65, latlon=True, s=2000, marker='^')
 
     # MAP.bluemarble()
-    MAP.drawmapboundary(fill_color='#040C0E')
+    MAP.drawmapboundary(fill_color=func.THEME['water'])
     MAP.drawcountries()
-    MAP.fillcontinents(color='#192e5b', lake_color='#040C0E')
-    MAP.drawstates()
+    MAP.fillcontinents(color=func.THEME['ground'], lake_color=func.THEME['water'])
+
+    if func.THEME['states']:
+        MAP.drawstates()
 
     # plt.savefig(func.SAVE_PATH)
     plt.show(color='#fbc531')
 
-
-# -> TRUNCATE THE JSON FILE FOR NEW DATA
-func.write_to_json({"ac": []}, func.JSON_FILE)
 
 # => GET JSON DATA
 response = req.get_flights()
@@ -77,3 +76,6 @@ new = extract.get_values(data, ["lat", "lon", "from", "to", "opicao"])
 labels = extract.get_labels(new, "opicao")
 create_basemap(new, func.US_AIRPORTS)
 
+# -> TRUNCATE THE JSON FILE FOR NEW DATA
+if not req.DEBUG:
+    func.write_to_json({ "ac": [] }, func.JSON_FILE)

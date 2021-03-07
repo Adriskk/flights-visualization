@@ -6,6 +6,7 @@
 import json
 import pandas as pd
 import configparser
+from datetime import datetime
 
 
 CONFIG_FILE = 'config/config.ini'
@@ -20,8 +21,19 @@ MARKER_PATH = 'res/plane.png'
 AIRPORTS_LIMIT = int(config['DATA']['airport_nrows'])
 SAVE_PATH = 'res/basemap.png'
 
+now = datetime.now()
+HOUR = now.hour
+
+THEME = {
+    'water': '#' + config['THEME']['day_water'] if HOUR < 19 else '#' + config['THEME']['night_water'],
+    'ground': '#' + config['THEME']['day_ground'] if HOUR < 19 else '#' + config['THEME']['night_ground'],
+    'font': config['THEME']['day_color'] if HOUR < 19 else config['THEME']['night_color'],
+    'states': bool(int(config['THEME']['day_states'])) if HOUR < 19 else bool(int(config['THEME']['night_states'])),
+    'marker-color': '#' + config['THEME']['marker_color']
+}
+
 # => DESTINATIONS OF THE BIGGER CITIES (Those are lat and lon in range - not the city coords)
-DESTINATIONS = {    # 22 requests / per use
+DESTINATIONS = {    # 24 requests / per use
     'BERM': [38.779623, -68.006869],
     'NJ': [40.035871, -74.203157],
     'MIAMI': [25.469607, -78.400208],
@@ -43,7 +55,9 @@ DESTINATIONS = {    # 22 requests / per use
     'PENS': [40.652992, -78.822506],
     'NY-STATE': [43.827342, -74.523746],
     'ATL-ISL': [18.786300, -66.121798],
-    'ALT': [32.003044, -71.439180]
+    'ALT': [32.003044, -71.439180],
+    'NEW-MEX': [35.866438, -104.398163],
+    'OKH': [35.294592, -95.169648]
 }
 
 # => ALL USA AIRPORTS

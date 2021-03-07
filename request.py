@@ -26,7 +26,7 @@ HOST = config['API']['host']
 print('CURRENT CALLS: ', CALLS + 1)
 
 
-def get_flights() -> str:
+def get_flights():
     if CALLS < 360 and DEBUG is False:
 
         for destination in func.DESTINATIONS:
