@@ -32,3 +32,14 @@ def get_labels(data: list, key: str) -> list:
 
     return labels
 
+
+def get_from_opensky(states):
+    try:
+        for state in states.states:
+
+            if state is not None:
+                yield [ state.longitude, state.latitude, state.velocity, state.heading ]
+
+        # return [[state.longitude, state.latitude, state.velocity] for state in states.states]
+    except AttributeError:
+        return False

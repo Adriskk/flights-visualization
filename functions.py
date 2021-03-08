@@ -7,6 +7,7 @@ import json
 import pandas as pd
 import configparser
 from datetime import datetime
+import random
 
 
 CONFIG_FILE = 'config/config.ini'
@@ -27,7 +28,7 @@ HOUR = now.hour
 THEME = {
     'water': '#' + config['THEME']['day_water'] if HOUR < 19 else '#' + config['THEME']['night_water'],
     'ground': '#' + config['THEME']['day_ground'] if HOUR < 19 else '#' + config['THEME']['night_ground'],
-    'font': config['THEME']['day_color'] if HOUR < 19 else config['THEME']['night_color'],
+    'font': '#' + config['THEME']['day_color'] if HOUR < 19 else '#' + config['THEME']['night_color'],
     'states': bool(int(config['THEME']['day_states'])) if HOUR < 19 else bool(int(config['THEME']['night_states'])),
     'marker-color': '#' + config['THEME']['marker_color']
 }
@@ -63,6 +64,26 @@ DESTINATIONS = {    # 24 requests / per use
 # => ALL USA AIRPORTS
 US_AIRPORTS = pd.read_csv(AIRPORTS_CSV_FILE, usecols=[
     'longitude_deg', 'latitude_deg', 'iata_code', 'name'], nrows=AIRPORTS_LIMIT+1)
+
+
+directions = ['north', 'east', 'south', 'west']
+
+# => MARKERS
+MARKERS = {
+    key: str(i + 1) for i, key in enumerate(directions)
+}
+
+ANGLES = [
+    # [0, 360 // 4, 'north'],
+    # [360 // 4, (360 // 4) * 2, 'east'],
+    # [(360 // 4) * 2, (360 // 4) * 3, 'south'],
+    # [(360 // 4) * 3, 360, 'west']
+
+    [0, 90, 'north'],
+    [91, 180, 'east'],
+    [181, 270, 'south'],
+    [271, 360, 'west'],
+]
 
 
 def change_json(content: dict, filename: str) -> bool:
@@ -120,4 +141,15 @@ def increment_calls(config, filename: str):
         config.write(file)
 
     return config
+
+
+def angle(heading):
+    if heading is None or heading == '' or heading == ' ': return random.choice(MARKERS)
+
+    heading = int(heading)
+
+    if ANGLES[0][0] <= heading <= ANGLES[0][1]: return MARKERS[ANGLES[0][2]]  # NORTH
+    if ANGLES[1][0] <= heading <= ANGLES[1][1]: return MARKERS[ANGLES[1][2]]  # EAST
+    if ANGLES[2][0] <= heading <= ANGLES[2][1]: return MARKERS[ANGLES[2][2]]  # SOUTH
+    if ANGLES[3][0] <= heading <= ANGLES[3][1]: return MARKERS[ANGLES[3][2]]  # WEST
 

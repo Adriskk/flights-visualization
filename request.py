@@ -2,6 +2,7 @@ import requests
 import configparser
 import json
 import functions as func
+from opensky_api import OpenSkyApi
 
 config = configparser.ConfigParser()
 config.read(func.CONFIG_FILE)
@@ -11,6 +12,11 @@ DEBUG = int(config['API']['debug'])
 DEBUG = True if int(DEBUG) == 1 else False
 COLUMNS = ['long', 'lat', 'position-source']
 
+USERNAME = config['API']['username']
+PASSWORD = config['API']['password']
+
+# => OPEN SKY API
+OS_API = OpenSkyApi(USERNAME, PASSWORD)
 
 # => API DATA
 # LAT = str(40)
@@ -64,3 +70,11 @@ def get_flights():
     # => NO DEBUG NO API CALLS
     else:
         raise Exception('Cannot do more api calls! ')
+
+
+def get_air_crafts_pos():
+    try:
+        return OS_API.get_states(bbox=(25.0001, 49.1000, -130.0000, -60.0000))
+
+    except requests.exceptions.ReadTimeout:
+        pass
