@@ -38,7 +38,14 @@ def get_from_opensky(states):
         for state in states.states:
 
             if state is not None:
-                yield [ state.longitude, state.latitude, state.velocity, state.heading ]
+                yield [
+                    state.longitude,
+                    state.latitude,
+                    state.velocity,
+                    state.heading,
+                    state.callsign,
+                    state.last_contact
+                ]
 
         # return [[state.longitude, state.latitude, state.velocity] for state in states.states]
     except AttributeError:

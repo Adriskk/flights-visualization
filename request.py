@@ -1,75 +1,21 @@
 import requests
 import configparser
-import json
 import functions as func
 from opensky_api import OpenSkyApi
+import extract
+import folium
 
 config = configparser.ConfigParser()
 config.read(func.CONFIG_FILE)
 
-CALLS = int(config['API']['calls'])
 DEBUG = int(config['API']['debug'])
 DEBUG = True if int(DEBUG) == 1 else False
-COLUMNS = ['long', 'lat', 'position-source']
 
 USERNAME = config['API']['username']
 PASSWORD = config['API']['password']
 
 # => OPEN SKY API
 OS_API = OpenSkyApi(USERNAME, PASSWORD)
-
-# => API DATA
-# LAT = str(40)
-# LON = str(-85)
-# => DISTANCE WILL ALWAYS BE 25 CUZ IN THIS API
-# => THE DISTANCE FROM GIVEN POINT CANNOT CHANGE ;<
-DIST = str(25)
-
-URL = config['API']['url']
-API_KEY = config['API']['api_key']
-HOST = config['API']['host']
-
-print('CURRENT CALLS: ', CALLS + 1)
-
-
-def get_flights():
-    if CALLS < 360 and DEBUG is False:
-
-        for destination in func.DESTINATIONS:
-            LAT, LON = func.DESTINATIONS[destination]
-            print(destination)
-
-            # => CREATE URL
-            url = URL + "lat/" + str(int(LAT)) + "/lon/" + str(int(LON)) + "/dist/" + DIST + "/"
-
-            headers = {
-                'x-rapidapi-key': API_KEY,
-                'x-rapidapi-host': HOST
-            }
-
-            response = requests.request("GET", url, headers=headers).json()
-
-            # => INCREMENT THE CALLS VALUE IN CONFIG
-            func.increment_calls(config, func.CONFIG_FILE)
-
-            # => SAVE TO FILENAME
-            result = func.change_json(response, func.JSON_FILE)
-
-            if result is False:
-                print("[ ERROR ] Json hasn't been saved! ")
-
-            # return response
-
-    # => LOAD FROM JSON FILE
-    elif DEBUG:
-        print('[  DEBUG MODE  ] [ LOAD FROM JSON FILE ]')
-
-        content = func.load_from_json(func.JSON_FILE)
-        return content
-
-    # => NO DEBUG NO API CALLS
-    else:
-        raise Exception('Cannot do more api calls! ')
 
 
 def get_air_crafts_pos():
@@ -78,3 +24,20 @@ def get_air_crafts_pos():
 
     except requests.exceptions.ReadTimeout:
         pass
+
+
+def create_markers(MAP):
+
+    AIR_CRAFTS = []
+
+    for pack in extract.get_from_opensky(get_air_crafts_pos()):
+        AIR_CRAFTS.append(pack)
+
+    for scatter in AIR_CRAFTS:
+
+        # => UNPACK
+        lon, lat, vel, heading = scatter
+
+        folium.Marker(location=[int(lat), int(lon)], popup=f'plane').add_to(MAP)
+
+    return MAP

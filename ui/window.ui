@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1262</width>
+    <height>711</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Flight Visualization</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(238, 94, 0);
+background-color: qlineargradient(spread:pad, x2:2.0508475, y1:0.28, x3:1, y2:1.994, stop:0 rgba(26, 23, 59, 255), stop:1 rgba(238, 94, 0, 255));
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1271</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 24pt &quot;Montserrat&quot;;
+text-shadow: 10px 10px #1A173B;</string>
+    </property>
+    <property name="text">
+     <string>    FLIGHTS VISUALIZATION</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>130</y>
+      <width>371</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(26, 23, 59);
+border-radius: 15px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="options">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>371</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Open Sans&quot;;
+
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+
+</string>
+     </property>
+     <property name="text">
+      <string>   OPTIONS</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="stats">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>190</y>
+       <width>371</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Open Sans&quot;;
+
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+
+</string>
+     </property>
+     <property name="text">
+      <string>   STATISTICS</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>80</y>
+       <width>241</width>
+       <height>88</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="refresh_btn">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 20px;
+background-color: #EE5E00;
+border: solid 2px ;
+border-color: #fff;
+
+color: #fff;
+font-weight: 400;
+
+padding: 10px;
+
+QPushButton#refresh_btn:hover { 
+	change-cursor: cursor('PointingHand'); 
+}</string>
+        </property>
+        <property name="text">
+         <string>Refresh</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="save_btn">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 20px;
+background-color: #EE5E00;
+border: solid 2px ;
+border-color: #fff;
+
+color: #fff;
+font-weight: 400;
+
+padding: 10px;
+
+QPushButton#save_btn:hover { 
+	change-cursor: cursor('PointingHand'); 
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Save current image</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="change_c_btn">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 20px;
+background-color: #EE5E00;
+border: solid 2px ;
+border-color: #fff;
+
+color: #fff;
+font-weight: 400;
+
+padding: 10px;
+
+QPushButton#change_c_btn:hover { 
+	change-cursor: cursor('PointingHand'); 
+}</string>
+        </property>
+        <property name="text">
+         <string>Change map colors</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="exit_btn">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 20px;
+background-color: #EE5E00;
+border: solid 2px ;
+border-color: #fff;
+
+color: #fff;
+font-weight: 400;
+
+padding: 10px;
+
+QPushButton#exit_btn:hover { 
+	change-cursor: cursor('PointingHand'); 
+}</string>
+        </property>
+        <property name="text">
+         <string>Exit</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>270</y>
+       <width>331</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color: #fff;
+font: 11pt &quot;Open Sans&quot;;
+font-weight: bold;
+</string>
+        </property>
+        <property name="text">
+         <string>AGGREGATE:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="styleSheet">
+         <string notr="true">color: #fff;
+font: 11pt &quot;Open Sans&quot;;
+font-weight: bold;
+</string>
+        </property>
+        <property name="text">
+         <string>LASTLY UPDATED:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="label_7">
+        <property name="styleSheet">
+         <string notr="true">color: #EE5E00;
+font: 11pt &quot;Open Sans&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_5">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #EE5E00;
+font: 11pt &quot;Open Sans&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">color: #EE5E00;
+font: 11pt &quot;Open Sans&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true">color: #fff;
+font: 11pt &quot;Open Sans&quot;;
+font-weight: bold;</string>
+        </property>
+        <property name="text">
+         <string>IN  AIR:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="styleSheet">
+         <string notr="true">color: #fff;
+font: 11pt &quot;Open Sans&quot;;
+font-weight: bold;
+</string>
+        </property>
+        <property name="text">
+         <string>FASTEST AIRCRAFT:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">color: #EE5E00;
+font: 11pt &quot;Open Sans&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>130</y>
+      <width>21</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 94, 0);
+border-top-left-radius: 15px;
+border-bottom-left-radius: 15px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>130</y>
+      <width>751</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(26, 23, 59);</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(26, 23, 59);
+border-top: 2px solid #fff;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
