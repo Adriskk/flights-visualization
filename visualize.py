@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 
-""" Description: visualize file - shows the map with current flights up the US """
 
-# => 3-RD PARTY IMPORTS
-# from mpl_toolkits.basemap import Basemap
-# import matplotlib.pyplot as plt
-# import numpy as np
-# import time
-# from IPython.display import HTML, display
-# import webbrowser
-# import io
-
+__author__ = 'Adison'
+__date__ = '13.03.2021'
+__description__ = 'Flights visualization project ' \
+                  'coded for TIMATHON 2021 (Theme: VISUALIZATION).' \
+                  'The project shows a USA map with plane markers' \
+                  '- using OpenSky API to get air crafts data.'
 
 # => IMPORTS
 from window import *
@@ -25,3 +21,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+

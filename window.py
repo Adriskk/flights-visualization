@@ -1,17 +1,25 @@
 # -*- coding: utf-8 -*-
 
-import functions as func
+__author__ = 'Adison'
+__date__ = '13.03.2021'
+__description__ = 'App class file'
 
+
+# => 3-RD PARTY IMPORTS
 from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QFileDialog, QLabel, QFrame
 import io
-import extract
-import request as req
-from data import *
 import datetime
 import folium
 import sys
+
+# => IMPORTS
+from lib import aggregate as ag
+from lib import functions as func
+from data import *
+from lib import extract
+from lib import request as req
 
 
 class Ui_MainWindow(object):
@@ -164,6 +172,7 @@ class Ui_MainWindow(object):
                                     "QPushButton#exit_btn:hover { \n"
                                     "    change-cursor: cursor(\'PointingHand\'); \n"
                                     "}")
+
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setObjectName("exit_btn")
 
@@ -314,14 +323,14 @@ class Ui_MainWindow(object):
         self.stats.setText(_translate("MainWindow", "   STATISTICS"))
 
         self.refresh_btn.setText(_translate("MainWindow", "Refresh"))
-        self.save_btn.setText(_translate("MainWindow", "Save current image"))
+        self.save_btn.setText(_translate("MainWindow", "Save current map"))
         self.change_c_btn.setText(_translate("MainWindow", "Change map colors"))
         self.exit_btn.setText(_translate("MainWindow", "Exit"))
 
         self.label_2.setText(_translate("MainWindow", "AGGREGATE:"))
         self.label_4.setText(_translate("MainWindow", "LASTLY UPDATED:"))
         self.label_3.setText(_translate("MainWindow", "IN AIR:"))
-        self.label_8.setText(_translate("MainWindow", "FASTEST AIRCRAFT:"))
+        self.label_8.setText(_translate("MainWindow", "FASTEST AIR CRAFT:"))
 
         # => CONNECT BUTTONS
         self.refresh_btn.clicked.connect(self.create_new_map)
@@ -346,6 +355,18 @@ class Ui_MainWindow(object):
         self.ALL_AIRCRAFTS = 0
         self.ALL_AIRCRAFTS = len(AIR_CRAFTS)
 
+        self.aggr = ag.find_aggregate(AIR_CRAFTS)
+
+        if self.aggr is False:
+            again = []
+            for pack in extract.get_from_opensky(req.get_air_crafts_pos()):
+                again.append(pack)
+
+            self.aggr = ag.find_aggregate(again)
+            if self.aggr is False: self.aggr = LOCATION
+
+        self.aggr = '' + str(round(self.aggr[1], 3)) + ', ' + str(round(self.aggr[0], 3))
+
         for index, scatter in enumerate(AIR_CRAFTS):
 
             # => UNPACK
@@ -357,7 +378,7 @@ class Ui_MainWindow(object):
             if vel is not None:
                 if vel > self.MAX_VELOCITY: self.MAX_VELOCITY = vel
 
-            # => SHOW 600 MARKERS FOR OPTIMIZATION
+            # => SHOW 600 MARKERS FOR APP OPTIMIZATION
             if index > 600: continue
 
             # => CREATE A MARKER
@@ -365,10 +386,7 @@ class Ui_MainWindow(object):
                 location=[lat, lon],
                 color=THEME['marker-color'],
                 icon=folium.Icon(color='orange', prefix='fa', icon='plane'),
-
-                popup=f"<strong> {callsign} </strong> <br> <b>Speed:</b> {vel} km/h <br> <b>Last seen:</b> "
-                      f"{datetime.datetime.fromtimestamp(int(last)).strftime('%H:%M:%S')}",
-
+                popup=self.create_popup(callsign, vel, last, heading),
                 tooltip=f"<strong>{callsign}</strong>"
             ).add_to(self.MAP)
 
@@ -380,9 +398,9 @@ class Ui_MainWindow(object):
         self.WebWidget.resize(func.MAP_WIDTH, func.MAP_HEIGHT)
 
         # => UPDATE THE STATISTICS
-        self.lastly_updated.setText(datetime.datetime.now().strftime('%H:%M:%S'))
+        self.lastly_updated.setText(datetime.now().strftime('%H:%M:%S'))
         self.in_air.setText(str(self.ALL_AIRCRAFTS))
-        self.aggregate.setText("")
+        self.aggregate.setText(self.aggr)
         self.velocity.setText(str(self.MAX_VELOCITY) + 'km/h')
 
         self.statusbar.showMessage('TIMATHON 2021')
@@ -395,7 +413,7 @@ class Ui_MainWindow(object):
     # => SAVE CURRENT MAP
     def save_current_map(self):
         options = QFileDialog.Options()
-        filepath = QFileDialog.getSaveFileName(None, "Save the current map", "map", ".html")
+        filepath = QFileDialog.getSaveFileName(None, "Save the current map", "map", ".html", options=options)
 
         self.MAP.save(filepath[0] + filepath[1])
 
@@ -403,3 +421,16 @@ class Ui_MainWindow(object):
     def change_theme(self):
         MODE = func.change_the_current_map_colors()
         self.statusbar.showMessage(f'TIMATHON 2021 - theme will change to {MODE} when you refresh the map')
+
+    def create_popup(self, callsign, vel, last, heading):
+
+        content = f'<body style="font-family: sans-serif; "> ' \
+                  f'<h4>Aircraft: {callsign}</h4>' \
+                  f'<b>Speed: </b>{vel} km/h <br />' \
+                  f'<b>Last seen: </b> {datetime.fromtimestamp(int(last)).strftime("%H:%M:%S")} <br />' \
+                  f'<b>Direction: </b> {heading} deg - {func.angle(heading)}' \
+                  f'</body>'
+
+        iframe = folium.IFrame(content, width=200, height=140)
+
+        return folium.Popup(iframe)

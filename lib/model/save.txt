@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+
+""" Description: calculating area with the most planes on its coords using KNN ML algorithm """
+
+import sklearn
+from sklearn.utils import shuffle
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn import linear_model, preprocessing
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pickle
+import os
+
+from data import *
+from lib import exceptions
+
+
+def find_aggregate(data):
+    samples = [[row[0], row[1]] for row in data if row is not None]
+    lon = [int(row[0]) for row in samples if row is not None]
+    lat = [int(row[1]) for row in samples if row is not None]
+
+    print(lon)
+    print(lat)
+
+    X = list(zip(lon, lat))
+    lon, lat = np.array(lon), np.array(lat)
+    y = np.c_[lon, lat]
+
+    try:
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.3)
+
+    except ValueError:
+        print('[ERROR] VALUE ERROR OCCURED! ')
+        return False
+
+    finally:
+
+        K = 100
+
+        # => CHECK IF FILE EXISTS
+        if os.path.isfile(MODEL_PATH): model = load_model()
+        else:
+            model = KNeighborsClassifier(n_neighbors=K)
+
+            if save_model(model) is False: raise exceptions.ModelCannotSaveException
+
+        model = MultiOutputClassifier(model, n_jobs=-1)
+        model.fit(x_train, y_train)
+
+        prediction = model.predict(x_test)
+
+        # print(prediction)
+        print(model.score(x_test, y_test))
+        print(len(prediction.tolist()))
+        print(prediction.tolist()[0])
+
+        x, y = [float(row[0]) for row in prediction.tolist()], [float(row[1]) for row in prediction.tolist()]
+
+        plt.scatter(x, y)
+        plt.xlabel('long')
+        plt.ylabel('lat')
+        plt.title('KNeighborsClassifier')
+        plt.show()
+
+
+def save_model(model, exists: bool = False) -> bool:
+    if exists is False: open(MODEL_PATH, 'x').close()
+
+    with open(MODEL_PATH, 'wb') as model_file:
+        try:
+            pickle.dump(model, model_file)
+            return True
+
+        except FileNotFoundError or pickle.PicklingError or pickle.UnpicklingError:
+            return False
+
+
+def load_model():
+    with open(MODEL_PATH, 'rb') as model_file:
+        model = pickle.load(model_file)
+    return model
