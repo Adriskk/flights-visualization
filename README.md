@@ -41,6 +41,7 @@ API uses an account to eliminate request limitations.
 You can use yours created [here](https://opensky-network.org/my-opensky/profile/profile) or default set in **config.ini** file.
 
 ## About
+
 Move on the map and discover aircrafts nearby. By clicking on the plane marker you can learn more about clicked
 plane like current position, speed, update time and heading direction. App uses K-Means Machine Learning algorithm to find the aggregate of 
 aircrafts on the map. 
