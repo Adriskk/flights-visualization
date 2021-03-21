@@ -15,7 +15,8 @@ USERNAME = config['API']['username']
 PASSWORD = config['API']['password']
 
 # => OPEN SKY API
-OS_API = OpenSkyApi(USERNAME, PASSWORD)
+if USERNAME != '' and PASSWORD != '': OS_API = OpenSkyApi(username=USERNAME, password=PASSWORD)
+else: OS_API = OpenSkyApi()
 
 
 def get_air_crafts_pos():

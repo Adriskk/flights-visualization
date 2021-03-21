@@ -1,0 +1,7 @@
+folium==0.12.1
+PyQt5==5.15.1
+configparser==5.0.1
+pandas==1.2.2
+scikit-learn==0.24.1
+pickleshare==0.7.5
+matplotlib==3.3.2

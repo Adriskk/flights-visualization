@@ -73,6 +73,3 @@ def load_model():
     with open(MODEL_PATH, 'rb') as model_file:
         model = pickle.load(model_file)
     return model
-
-
-# =>  REPAIR THE COMMON ERROR

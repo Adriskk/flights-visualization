@@ -16,6 +16,10 @@ if __name__ == "__main__":
     import sys
 
     app = QtWidgets.QApplication(sys.argv)
+
+    # => SET STYLE SHEET
+    app.setStyleSheet(open(CSS_PATH).read())
+
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)

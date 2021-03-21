@@ -22,6 +22,7 @@ CLUSTERS = int(config['ML']['clusters'])
 
 LOCATION = [37.870206, -99.687162]
 MAP_SAVE_PATH = config['MAP']['map_save_path']
+CSS_PATH = config['DATA']['css_path']
 
 now = datetime.now()
 HOUR = now.hour
@@ -49,6 +50,13 @@ directions = ['N', 'E', 'S', 'W']
 MARKERS = {
     key: str(i + 1) for i, key in enumerate(directions)
 }
+
+CONNECTED_ANGLES = [
+    [35, 55, 'NE'],
+    [125, 145, 'SE'],
+    [215, 235, 'SW'],
+    [305, 325, 'NW']
+]
 
 ANGLES = [
     [0, 90, 'N'],

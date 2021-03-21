@@ -1,0 +1,14 @@
+/* STYLE SHEET ONLY FOR PUSHBUTTON NOW */
+
+QPushButton {
+    color: rgb(238, 94, 0);
+    border: 2px solid rgb(238, 94, 0);
+    font-weight: 500;
+    min-width: 110px;
+}
+
+QPushButton:hover {
+    color: #fff;
+    background-color: #EE5E00;
+    cursor: pointer;
+}

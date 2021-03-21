@@ -73,6 +73,11 @@ def angle(heading):
 
     heading = int(heading)
 
+    if CONNECTED_ANGLES[0][0] <= heading <= CONNECTED_ANGLES[0][1]: return CONNECTED_ANGLES[0][2]  # NE
+    if CONNECTED_ANGLES[1][0] <= heading <= CONNECTED_ANGLES[1][1]: return CONNECTED_ANGLES[1][2]  # SE
+    if CONNECTED_ANGLES[2][0] <= heading <= CONNECTED_ANGLES[2][1]: return CONNECTED_ANGLES[2][2]  # SW
+    if CONNECTED_ANGLES[3][0] <= heading <= CONNECTED_ANGLES[3][1]: return CONNECTED_ANGLES[3][2]  # NW
+
     if ANGLES[0][0] <= heading <= ANGLES[0][1]: return ANGLES[0][2]  # NORTH
     if ANGLES[1][0] <= heading <= ANGLES[1][1]: return ANGLES[1][2]  # EAST
     if ANGLES[2][0] <= heading <= ANGLES[2][1]: return ANGLES[2][2]  # SOUTH

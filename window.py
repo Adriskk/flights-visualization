@@ -98,19 +98,19 @@ class Ui_MainWindow(object):
 
         self.refresh_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.refresh_btn.setMinimumSize(QtCore.QSize(0, 40))
-        self.refresh_btn.setStyleSheet("border-radius: 20px;\n"
-                                       "background-color: #EE5E00;\n"
-                                       "border: solid 2px ;\n"
-                                       "border-color: #fff;\n"
-                                       "\n"
-                                       "color: #fff;\n"
-                                       "font-weight: 400;\n"
-                                       "\n"
-                                       "padding: 10px;\n"
-                                       "\n"
-                                       "QPushButton#refresh_btn:hover { \n"
-                                       "    change-cursor: cursor(\'PointingHand\'); \n"
-                                       "}")
+        # self.refresh_btn.setStyleSheet("border-radius: 20px;\n"
+        #                                "background-color: #EE5E00;\n"
+        #                                "border: solid 2px ;\n"
+        #                                "border-color: #fff;\n"
+        #                                "\n"
+        #                                "color: #fff;\n"
+        #                                "font-weight: 400;\n"
+        #                                "\n"
+        #                                "padding: 10px;\n"
+        #                                "\n"
+        #                                "QPushButton#refresh_btn:hover { \n"
+        #                                "    change-cursor: cursor(\'PointingHand\'); \n"
+        #                                "}")
         self.refresh_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.refresh_btn.setObjectName("refresh_btn")
 
@@ -118,20 +118,20 @@ class Ui_MainWindow(object):
 
         self.save_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.save_btn.setMinimumSize(QtCore.QSize(0, 40))
-        self.save_btn.setStyleSheet("border-radius: 20px;\n"
-                                    "background-color: #EE5E00;\n"
-                                    "border: solid 2px ;\n"
-                                    "border-color: #fff;\n"
-                                    "\n"
-                                    "color: #fff;\n"
-                                    "font-weight: 400;\n"
-                                    "\n"
-                                    "padding: 10px;\n"
-                                    "\n"
-                                    "QPushButton#save_btn:hover { \n"
-                                    "    change-cursor: cursor(\'PointingHand\'); \n"
-                                    "}\n"
-                                    "")
+        # self.save_btn.setStyleSheet("border-radius: 20px;\n"
+        #                             "background-color: #EE5E00;\n"
+        #                             "border: solid 2px ;\n"
+        #                             "border-color: #fff;\n"
+        #                             "\n"
+        #                             "color: #fff;\n"
+        #                             "font-weight: 400;\n"
+        #                             "\n"
+        #                             "padding: 10px;\n"
+        #                             "\n"
+        #                             "QPushButton#save_btn:hover { \n"
+        #                             "    change-cursor: cursor(\'PointingHand\'); \n"
+        #                             "}\n"
+        #                             "")
         self.save_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.save_btn.setObjectName("save_btn")
 
@@ -139,19 +139,19 @@ class Ui_MainWindow(object):
 
         self.change_c_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.change_c_btn.setMinimumSize(QtCore.QSize(0, 40))
-        self.change_c_btn.setStyleSheet("border-radius: 20px;\n"
-                                        "background-color: #EE5E00;\n"
-                                        "border: solid 2px ;\n"
-                                        "border-color: #fff;\n"
-                                        "\n"
-                                        "color: #fff;\n"
-                                        "font-weight: 400;\n"
-                                        "\n"
-                                        "padding: 10px;\n"
-                                        "\n"
-                                        "QPushButton#change_c_btn:hover { \n"
-                                        "    change-cursor: cursor(\'PointingHand\'); \n"
-                                        "}")
+        # self.change_c_btn.setStyleSheet("border-radius: 20px;\n"
+        #                                 "background-color: #EE5E00;\n"
+        #                                 "border: solid 2px ;\n"
+        #                                 "border-color: #fff;\n"
+        #                                 "\n"
+        #                                 "color: #fff;\n"
+        #                                 "font-weight: 400;\n"
+        #                                 "\n"
+        #                                 "padding: 10px;\n"
+        #                                 "\n"
+        #                                 "QPushButton#change_c_btn:hover { \n"
+        #                                 "    change-cursor: cursor(\'PointingHand\'); \n"
+        #                                 "}")
         self.change_c_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.change_c_btn.setObjectName("change_c_btn")
 
@@ -159,19 +159,19 @@ class Ui_MainWindow(object):
 
         self.exit_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.exit_btn.setMinimumSize(QtCore.QSize(0, 40))
-        self.exit_btn.setStyleSheet("border-radius: 20px;\n"
-                                    "background-color: #EE5E00;\n"
-                                    "border: solid 2px ;\n"
-                                    "border-color: #fff;\n"
-                                    "\n"
-                                    "color: #fff;\n"
-                                    "font-weight: 400;\n"
-                                    "\n"
-                                    "padding: 10px;\n"
-                                    "\n"
-                                    "QPushButton#exit_btn:hover { \n"
-                                    "    change-cursor: cursor(\'PointingHand\'); \n"
-                                    "}")
+        # self.exit_btn.setStyleSheet("border-radius: 20px;\n"
+        #                             "background-color: #EE5E00;\n"
+        #                             "border: solid 2px ;\n"
+        #                             "border-color: #fff;\n"
+        #                             "\n"
+        #                             "color: #fff;\n"
+        #                             "font-weight: 400;\n"
+        #                             "\n"
+        #                             "padding: 10px;\n"
+        #                             "\n"
+        #                             "QPushButton#exit_btn:hover { \n"
+        #                             "    change-cursor: cursor(\'PointingHand\'); \n"
+        #                             "}")
 
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setObjectName("exit_btn")
@@ -323,14 +323,14 @@ class Ui_MainWindow(object):
         self.stats.setText(_translate("MainWindow", "   STATISTICS"))
 
         self.refresh_btn.setText(_translate("MainWindow", "Refresh"))
-        self.save_btn.setText(_translate("MainWindow", "Save current map"))
-        self.change_c_btn.setText(_translate("MainWindow", "Change map colors"))
+        self.save_btn.setText(_translate("MainWindow", "Save map"))
+        self.change_c_btn.setText(_translate("MainWindow", "Change colors"))
         self.exit_btn.setText(_translate("MainWindow", "Exit"))
 
         self.label_2.setText(_translate("MainWindow", "AGGREGATE:"))
         self.label_4.setText(_translate("MainWindow", "LASTLY UPDATED:"))
         self.label_3.setText(_translate("MainWindow", "IN AIR:"))
-        self.label_8.setText(_translate("MainWindow", "FASTEST AIR CRAFT:"))
+        self.label_8.setText(_translate("MainWindow", "FASTEST AIRCRAFT:"))
 
         # => CONNECT BUTTONS
         self.refresh_btn.clicked.connect(self.create_new_map)
@@ -386,7 +386,7 @@ class Ui_MainWindow(object):
                 location=[lat, lon],
                 color=THEME['marker-color'],
                 icon=folium.Icon(color='orange', prefix='fa', icon='plane'),
-                popup=self.create_popup(callsign, vel, last, heading),
+                popup=self.create_popup(lat, lon, callsign, vel, last, heading),
                 tooltip=f"<strong>{callsign}</strong>"
             ).add_to(self.MAP)
 
@@ -422,15 +422,16 @@ class Ui_MainWindow(object):
         MODE = func.change_the_current_map_colors()
         self.statusbar.showMessage(f'TIMATHON 2021 - theme will change to {MODE} when you refresh the map')
 
-    def create_popup(self, callsign, vel, last, heading):
+    def create_popup(self, lat, lon, callsign, vel, last, heading):
 
         content = f'<body style="font-family: sans-serif; "> ' \
                   f'<h4>Aircraft: {callsign}</h4>' \
+                  f'<b>Position: </b>{lat}, {lon} <br />' \
                   f'<b>Speed: </b>{vel} km/h <br />' \
                   f'<b>Last seen: </b> {datetime.fromtimestamp(int(last)).strftime("%H:%M:%S")} <br />' \
-                  f'<b>Direction: </b> {heading} deg - {func.angle(heading)}' \
+                  f'<b>Direction: </b> {int(heading)}deg ({func.angle(heading)})' \
                   f'</body>'
 
-        iframe = folium.IFrame(content, width=200, height=140)
+        iframe = folium.IFrame(content, width=240, height=145)
 
         return folium.Popup(iframe)
