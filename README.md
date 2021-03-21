@@ -44,8 +44,9 @@ You can use yours created [here](https://opensky-network.org/my-opensky/profile/
 Move on the map and discover aircrafts nearby. By clicking on the plane marker you can learn more about clicked
 plane like current position, speed, update time and heading direction. App uses K-Means Machine Learning algorithm to find the aggregate of 
 aircrafts on the map. 
+
 ---
-* You can change the colors of the map to dark by clicking ```Change colors``` button - and to white by clicking the same button
+* You can change the colors of the map to dark by clicking ```Change colors``` button - and to white by clicking the same
 * To refresh the map click ```Refresh```
 * Save map by clicking the ```Save map``` button
 
