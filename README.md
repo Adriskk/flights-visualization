@@ -43,6 +43,19 @@ pip3 install -requirements.txt
 API uses an account to eliminate request limitations.
 You can use yours created [here](https://opensky-network.org/my-opensky/profile/profile) or default set in **config.ini** file.
 
+To run the application type
+
+```bash
+python visualize.py
+```
+
+or 
+
+```bash
+python3 visualize.py
+```
+
+in cmd 
 
 
 ## About
