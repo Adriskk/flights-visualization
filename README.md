@@ -1,4 +1,4 @@
-# Flight Visualization
+# ✈️ Flight Visualization
 
 ### Find aircrafts above your head
 
@@ -51,11 +51,11 @@ plane like current position, speed, update time and heading direction. App uses 
 aircrafts on the map. Sometimes application takes some time to load the map becouse of a API request and data preprocessing
 
 ---
-* You can change the colors of the map to dark by clicking ```Change colors``` button - and to white by clicking the same
-* To refresh the map click ```Refresh```
-* Save map by clicking the ```Save map``` button
+* 🌈 You can change the colors of the map to dark by clicking ```Change colors``` button - and to white by clicking the same
+* 🔄 To refresh the map click ```Refresh```
+* 💾 Save map by clicking the ```Save map``` button
 
 ---
 
-![obraz](https://user-images.githubusercontent.com/65545676/111905221-d32bad00-8a4a-11eb-884f-6faa525b0a95.png)
+![Flights Visualization Application UI](https://user-images.githubusercontent.com/65545676/111905221-d32bad00-8a4a-11eb-884f-6faa525b0a95.png)
 
