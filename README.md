@@ -9,11 +9,13 @@ An application which shows the current USA map with
 thousands of aircrafts markers, containing some features regarding to planes. 
 
 
+
 ## Features
 1. [Separate data for each aircraft]()
 2. [Saving map ready for any use]()
 3. [Get the exact position of clicked plane]()
 4. [Calculate the aircrafts aggregate on map using Machine Learning]()
+
 
 
 ## Installation
@@ -36,9 +38,12 @@ pip3 install -requirements.txt
 ```
 
 
+
 ## Setup
 API uses an account to eliminate request limitations.
 You can use yours created [here](https://opensky-network.org/my-opensky/profile/profile) or default set in **config.ini** file.
+
+
 
 ## About
 Move on the map and discover aircrafts nearby. By clicking on the plane marker you can learn more about clicked
