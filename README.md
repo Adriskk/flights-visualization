@@ -22,8 +22,7 @@ thousands of aircrafts markers, containing some features regarding to planes.
 Project uses the OpenSky API
 You can easily download and set it up when following the instructions
 on [this repository](https://github.com/openskynetwork/opensky-api).
-
-You need to install the modules from **requirements.txt** file too.
+You need to install the modules from **requirements.txt** file, too.
 You can do it by typing the following command in cmd console:
 
 ```bash
