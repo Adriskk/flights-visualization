@@ -26,12 +26,14 @@ You need to install the modules from **requirements.txt** file, too.
 You can do it by typing the following command in cmd console:
 
 ```bash
+git clone https://github.com/Adriskk/flights-visualization.git
 cd flights-visualization
 pip install -r requirements.txt
 ```
 or 
 
 ```bash
+git clone https://github.com/Adriskk/flights-visualization.git
 cd flights-visualization
 pip3 install -requirements.txt
 ```
