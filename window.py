@@ -98,19 +98,6 @@ class Ui_MainWindow(object):
 
         self.refresh_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.refresh_btn.setMinimumSize(QtCore.QSize(0, 40))
-        # self.refresh_btn.setStyleSheet("border-radius: 20px;\n"
-        #                                "background-color: #EE5E00;\n"
-        #                                "border: solid 2px ;\n"
-        #                                "border-color: #fff;\n"
-        #                                "\n"
-        #                                "color: #fff;\n"
-        #                                "font-weight: 400;\n"
-        #                                "\n"
-        #                                "padding: 10px;\n"
-        #                                "\n"
-        #                                "QPushButton#refresh_btn:hover { \n"
-        #                                "    change-cursor: cursor(\'PointingHand\'); \n"
-        #                                "}")
         self.refresh_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.refresh_btn.setObjectName("refresh_btn")
 
@@ -118,20 +105,6 @@ class Ui_MainWindow(object):
 
         self.save_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.save_btn.setMinimumSize(QtCore.QSize(0, 40))
-        # self.save_btn.setStyleSheet("border-radius: 20px;\n"
-        #                             "background-color: #EE5E00;\n"
-        #                             "border: solid 2px ;\n"
-        #                             "border-color: #fff;\n"
-        #                             "\n"
-        #                             "color: #fff;\n"
-        #                             "font-weight: 400;\n"
-        #                             "\n"
-        #                             "padding: 10px;\n"
-        #                             "\n"
-        #                             "QPushButton#save_btn:hover { \n"
-        #                             "    change-cursor: cursor(\'PointingHand\'); \n"
-        #                             "}\n"
-        #                             "")
         self.save_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.save_btn.setObjectName("save_btn")
 
@@ -139,19 +112,6 @@ class Ui_MainWindow(object):
 
         self.change_c_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.change_c_btn.setMinimumSize(QtCore.QSize(0, 40))
-        # self.change_c_btn.setStyleSheet("border-radius: 20px;\n"
-        #                                 "background-color: #EE5E00;\n"
-        #                                 "border: solid 2px ;\n"
-        #                                 "border-color: #fff;\n"
-        #                                 "\n"
-        #                                 "color: #fff;\n"
-        #                                 "font-weight: 400;\n"
-        #                                 "\n"
-        #                                 "padding: 10px;\n"
-        #                                 "\n"
-        #                                 "QPushButton#change_c_btn:hover { \n"
-        #                                 "    change-cursor: cursor(\'PointingHand\'); \n"
-        #                                 "}")
         self.change_c_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.change_c_btn.setObjectName("change_c_btn")
 
@@ -159,20 +119,6 @@ class Ui_MainWindow(object):
 
         self.exit_btn = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.exit_btn.setMinimumSize(QtCore.QSize(0, 40))
-        # self.exit_btn.setStyleSheet("border-radius: 20px;\n"
-        #                             "background-color: #EE5E00;\n"
-        #                             "border: solid 2px ;\n"
-        #                             "border-color: #fff;\n"
-        #                             "\n"
-        #                             "color: #fff;\n"
-        #                             "font-weight: 400;\n"
-        #                             "\n"
-        #                             "padding: 10px;\n"
-        #                             "\n"
-        #                             "QPushButton#exit_btn:hover { \n"
-        #                             "    change-cursor: cursor(\'PointingHand\'); \n"
-        #                             "}")
-
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setObjectName("exit_btn")
 
