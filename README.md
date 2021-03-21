@@ -1,4 +1,4 @@
-# ✈️ Flight Visualization
+# ✈️ Flights Visualization
 
 ### Find aircrafts above your head
 
