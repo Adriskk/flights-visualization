@@ -62,7 +62,7 @@ in cmd
 ## About
 Move on the map and discover aircrafts nearby. By clicking on the plane marker you can learn more about clicked
 plane like current position, speed, update time and heading direction. App uses K-Means Machine Learning algorithm to find the aggregate of 
-aircrafts on the map. Sometimes application takes some time to load the map becouse of a API request and data preprocessing, even when it's not responding.
+aircrafts on the map. Sometimes application takes some time to load the map because of a API request and data preprocessing, even when it's not responding.
 
 ---
 * 🌈 You can change the colors of the map to dark by clicking ```Change colors``` button - and to white by clicking the same
