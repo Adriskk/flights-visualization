@@ -40,3 +40,4 @@ pip3 install -requirements.txt
 API uses an account to eliminate request limitations.
 You can use yours created [here](https://opensky-network.org/my-opensky/profile/profile) or default set in **config.ini** file.
 
+![Application](https://user-images.githubusercontent.com/65545676/111904476-80042b00-8a47-11eb-9d10-f22b41ec8603.png)
