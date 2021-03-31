@@ -35,7 +35,7 @@ or
 ```bash
 git clone https://github.com/Adriskk/flights-visualization.git
 cd flights-visualization
-pip3 install -requirements.txt
+pip3 install -r requirements.txt
 ```
 
 
