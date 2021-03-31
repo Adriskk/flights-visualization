@@ -3,7 +3,7 @@
 ### Find aircrafts above your head
 
 
-**Adison#5555** submission for **Timathon 2021 (Mar-Apr)** - [vote for me](#)
+**Adison#5555** submission for **Timathon 2021 (Mar-Apr)** - [vote for me](https://twtcodejam.net/timathon/vote/586/)
 
 An application which shows the current USA map with
 thousands of aircrafts markers, containing some features regarding to planes. 
